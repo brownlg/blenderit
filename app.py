@@ -33,7 +33,7 @@ def get_code():
         code_blocks = load_code_blocks_from_directory(directory_path)        
         code = ""
         for key, value in code_blocks.items():
-            code += value
+            code += "\n"+ value
     else:
         return jsonify({"error": "Unknown command"}), 400
 
