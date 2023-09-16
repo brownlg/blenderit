@@ -28,12 +28,14 @@ def load_code_blocks_from_directory(directory_path):
 app = Flask(__name__)
 @app.route('/blender_code', methods=['GET'])
 def get_code():
+    print("Get code request")
     command = request.args.get('command')
     if command == "all":        
         code_blocks = load_code_blocks_from_directory(directory_path)        
         code = ""
         for key, value in code_blocks.items():
             code += "\n"+ value
+            print(key)
     else:
         return jsonify({"error": "Unknown command"}), 400
 

@@ -1,5 +1,6 @@
 def create_plane(location=(0, 0, 0), rotation=(0, 0, 0), scale=(1, 1, 1)):
     """
+    Blender V3.4.1
     Create a plane in Blender with the option to set location, rotation, and scale.
     
     Args:
@@ -17,5 +18,3 @@ def create_plane(location=(0, 0, 0), rotation=(0, 0, 0), scale=(1, 1, 1)):
     # Return the created plane object
     return bpy.context.active_object
 
-# Usage example:
-plane = create_plane(location=(2, 2, 2), scale=(2, 2, 1))
