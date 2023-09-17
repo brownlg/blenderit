@@ -1,5 +1,5 @@
 
-def ray_selector(obj, start_point, direction_vector, max_distance=1000.0):
+def ray_selector(obj, start_point, direction_vector, max_distance=1000.0, marker=True):
     """
     Find the first face of an object that intersects with a ray originating from a given point using bmesh.
     
@@ -15,7 +15,7 @@ def ray_selector(obj, start_point, direction_vector, max_distance=1000.0):
     
     print("Ray cast selector on object with " + str(len(obj.data.polygons)) + " polygons")
     
-    start_point = mathutils.Vector((0, 0, 5))
+    
     direction_vector = mathutils.Vector((direction_vector))
     
     # Ensure the object has a mesh with polygons
@@ -38,6 +38,13 @@ def ray_selector(obj, start_point, direction_vector, max_distance=1000.0):
     if hit:        
         location, normal, face_index, _ = hit
         print("Ray hit : " + str(face_index))
-        return face_index
+        
+        if marker:
+            marker_name = generate_unique_id() 
+            attach_marker(obj, face_index, marker_name)
+        else:
+            marker_name = None
+            
+        return face_index, marker_name
     
-    return None
+    return None, None

@@ -11,6 +11,9 @@ def add_texture_to_material(mat, texture_path):
     - bpy.types.ShaderNodeTexImage: The created texture node.
     """
     
+    # Make sure you are in 'OBJECT' mode
+    bpy.ops.object.mode_set(mode='OBJECT')
+        
     # Ensure material uses nodes
     mat.use_nodes = True
     
