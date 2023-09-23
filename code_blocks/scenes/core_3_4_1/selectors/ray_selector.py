@@ -1,5 +1,5 @@
 
-def ray_selector(obj, start_point, direction_vector, max_distance=1000.0, marker=True):
+def ray_selector(obj, start_point, direction_vector, max_distance=1000.0, marker=True, marker_name = "?"):
     """
     Find the first face of an object that intersects with a ray originating from a given point using bmesh.
     
@@ -40,7 +40,9 @@ def ray_selector(obj, start_point, direction_vector, max_distance=1000.0, marker
         print("Ray hit : " + str(face_index))
         
         if marker:
-            marker_name = generate_unique_id() 
+            if marker_name == "?":                
+                marker_name = generate_unique_id() 
+            
             attach_marker(obj, face_index, marker_name)
         else:
             marker_name = None

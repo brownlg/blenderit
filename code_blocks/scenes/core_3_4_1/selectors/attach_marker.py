@@ -13,7 +13,7 @@ def attach_marker(obj, face_index, marker_name):
     empty = bpy.context.active_object
     empty.name = marker_name
     empty.empty_display_type = 'SPHERE'
-    empty.scale = (0.02, 0.02, 0.02)
+    empty.scale = (0.005, 0.005, 0.005)
 
     face_center = obj.data.polygons[face_index].center
     empty.location = obj.matrix_world @ face_center
