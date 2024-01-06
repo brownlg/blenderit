@@ -7,7 +7,8 @@ def translate_face(obj, face_index, translation_vector):
     - face_index: The index of the face to be translated.
     - translation_vector: A Vector object indicating the translation direction and magnitude.
     """
-    
+    bpy.ops.object.mode_set(mode='OBJECT')
+
     translation_vector = mathutils.Vector((translation_vector))
     
     # Ensure the object is a mesh

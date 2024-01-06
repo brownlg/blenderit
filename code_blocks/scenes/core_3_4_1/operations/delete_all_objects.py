@@ -64,3 +64,22 @@ def hide_objects_in_keep_collection(hide=True):
         for obj in keep_collection.objects:
             obj.hide_viewport = hide
 
+def delete_object(obj):
+    """
+    Delete a specified object from the Blender scene.
+
+    Args:
+    - obj (bpy.types.Object): The object to be deleted.
+    """
+
+    # Deselect all objects
+    bpy.ops.object.select_all(action='DESELECT')
+
+    # Select the object
+    obj.select_set(True)
+
+    # Set the object as the active object
+    bpy.context.view_layer.objects.active = obj
+
+    # Delete the object
+    bpy.ops.object.delete()
