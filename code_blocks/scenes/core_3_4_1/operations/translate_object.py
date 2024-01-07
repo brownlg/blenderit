@@ -8,3 +8,4 @@ def translate_object(obj, translation_vector):
     """
     
     obj.location += mathutils.Vector(translation_vector)
+
